@@ -6,6 +6,13 @@ import { Comment } from '../../Models/Comment';
 import { IssueLabel } from '../../Models/IssueLabel';
 import { IMarkdownConvertable } from './IMarkdownConvertable';
 import * as vscode from 'vscode';
+let _channel: vscode.OutputChannel;
+function getOutputChannel(): vscode.OutputChannel {
+	if (!_channel) {
+		_channel = vscode.window.createOutputChannel('Gitlab Explorer');
+	}
+	return _channel;
+}
 
 export class GitlabAPIProvider {
     static current: GitlabAPIProvider;
@@ -44,6 +51,9 @@ export class GitlabAPIProvider {
             groups = response.data.map((group:any)=>{
                 return new Group(group);
             }) as Array<Group>;
+            
+            getOutputChannel().appendLine('Groups = ' +  groups.map(g => g.GetTreeItemLabel()));
+
             groups = groups.filter((g)=>{ return g.GetParentID() === null; }); //Only Root Groups
         } catch (error) {
             this.HandleError(error);

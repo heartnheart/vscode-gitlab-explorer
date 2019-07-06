@@ -1,6 +1,6 @@
 import { Comment } from "../Models/Comment";
 import { IView } from "../providers/view/IView";
-import { GitlabAPIProvider } from "../Providers/gitlab/api";
+import { GitlabAPIProvider } from "../providers/gitlab/api";
 
 export class CommentView implements IView {
     constructor(private comment:Comment, private projectRef:string) {

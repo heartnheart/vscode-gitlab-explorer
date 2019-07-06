@@ -2,8 +2,8 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { GitlabAPIProvider } from './Providers/gitlab/api';
-import { GitlabExplorer } from './Providers/gitlab/explorer';
+import { GitlabAPIProvider } from './providers/gitlab/api';
+import { GitlabExplorer } from './providers/gitlab/explorer';
 import { AssetProvider } from './providers/asset-provider';
 import { GitlabView } from './providers/view/viewProvider';
 

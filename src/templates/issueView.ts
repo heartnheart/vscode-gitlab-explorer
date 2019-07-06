@@ -1,5 +1,5 @@
 import { IView } from "../providers/view/IView";
-import { GitlabAPIProvider } from "../Providers/gitlab/api";
+import { GitlabAPIProvider } from "../providers/gitlab/api";
 import { Issue } from "../Models/Issue";
 
 export class IssueView implements IView {
